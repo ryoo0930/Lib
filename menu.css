@@ -1,0 +1,11 @@
+.ul_menu {
+    text-align: center;
+
+}
+
+.li_menu {
+    display: inline;
+    display: inline-block;
+    margin-top: -3%;
+    padding: 5%;
+}
