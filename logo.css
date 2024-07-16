@@ -7,17 +7,17 @@
 
 .logo {
     font-family: 'BagelFatOne-Regular';
-    font-size: 48px;
+    font-size: 32px;
     color: green;
     text-align: center;
 
-}
-
-a[href="index.html"] {
-    text-decoration: none;
 }
 
 a[href="index.html"]:link {color: green;}
 a[href="index.html"]:visited {color: green;}
 a[href="index.html"]:hover {color: rgb(0, 80, 0);}
 a[href="index.html"]:active {color: green;}
+
+a[href="index.html"] {
+    text-decoration: none;
+}
