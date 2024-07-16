@@ -1,3 +1,23 @@
-.logo {
-    text-align: center;
+@font-face {
+    font-family: 'BagelFatOne-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
+
+.logo {
+    font-family: 'BagelFatOne-Regular';
+    font-size: 48px;
+    color: green;
+    text-align: center;
+
+}
+
+a[href="index.html"] {
+    text-decoration: none;
+}
+
+a[href="index.html"]:link {color: green;}
+a[href="index.html"]:visited {color: green;}
+a[href="index.html"]:hover {color: rgb(0, 80, 0);}
+a[href="index.html"]:active {color: green;}
