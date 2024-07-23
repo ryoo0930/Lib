@@ -177,7 +177,17 @@ EDIT ON
             animation: fadein 5s ease 1s;
             -webkit-animation: fadein 1s; /* Safari and Chrome */
         }
+        
+        .text5 {
+            display: none;
+        }
 
+        
+        .ip-text{
+            color: green;
+            animation: fadein 5s ease 1s;
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+        }
         
         body {
             display: flex;

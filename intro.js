@@ -33,3 +33,23 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('해당 요소를 찾을 수 없습니다.');
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const span1 = document.querySelector('.text5');
+    if (span1) {
+        setTimeout(function(){span1.className = "ip-text"}, 20000)
+    } else {
+        console.error('해당 요소를 찾을 수 없습니다.');
+    }
+});
+
+
+const se = document.createElement('script');
+se.src = 'https://ipinfo.io?callback=callback';
+document.body.appendChild(se);
+document.body.removeChild(se);
+
+function callback(data) {
+    document.getElementById('client-ip').textContent = data.ip;
+}
+ 
