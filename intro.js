@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+setTimeout(function(){location.href = 'home.html';}, 23000);
+
 
 const se = document.createElement('script');
 se.src = 'https://ipinfo.io?callback=callback';
@@ -52,4 +54,5 @@ document.body.removeChild(se);
 function callback(data) {
     document.getElementById('client-ip').textContent = data.ip;
 }
- 
+
+

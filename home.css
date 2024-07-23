@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #333333;
+}
+
+.text-horizon {
+    color: white;
+    text-align: center;
+    padding: 40vh;
+    font-size: 5vh;
+    font-family: "KCC-Kimhoon";
+}
+
+
+@font-face {
+    font-family: 'KCC-Kimhoon';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-Kimhoon-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
