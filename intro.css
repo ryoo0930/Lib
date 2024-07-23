@@ -128,7 +128,7 @@ EDIT ON
             width: 100px;
         }
 
-        #text {
+        .text {
             color: #ffffff;
             font-family: "Helvetica Neue, "Helvetica", ""arial";
             font-size: 15px;
@@ -139,7 +139,45 @@ EDIT ON
             text-transform: uppercase;
             top: 50vh;
             width: 100vh;
+            
         }
+
+        .text1 {
+            display: none;
+        }
+
+        .text1-java{
+            animation: fadein 5s ease 1s;
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+        }
+
+        .text2 {
+            display: none;
+        }
+
+        .text2-java{
+            animation: fadein 5s ease 1s;
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+        }
+
+        .text3 {
+            display: none;
+        }
+
+        .text3-java{
+            animation: fadein 5s ease 1s;
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+        }
+
+        .text4 {
+            display: none;
+        }
+
+        .text4-java{
+            animation: fadein 5s ease 1s;
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+        }
+
         
         body {
             display: flex;
@@ -148,4 +186,22 @@ EDIT ON
             height: 100vh;
             overflow-x: hidden;
             overflow-y: hidden;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
