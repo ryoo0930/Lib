@@ -43,7 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-setTimeout(function(){location.href = 'home.html';}, 23000);
+document.addEventListener('DOMContentLoaded', function() {
+    const span1 = document.querySelector('body');
+    if (span1) {
+        setTimeout(function(){span1.className = "fadeout"}, 22000)
+    } else {
+        console.error('해당 요소를 찾을 수 없습니다.');
+    }
+});
+
+
+
+setTimeout(function(){location.href = 'home.html';}, 22800);
 
 
 const se = document.createElement('script');
