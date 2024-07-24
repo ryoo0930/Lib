@@ -3,14 +3,75 @@
     <head>
         <title>도서관</title>
         <meta charset="utf-8">
-        
-        <link rel="stylesheet" href="./home.css">
         <link href="./Icon.png" rel="shortcut icon" type="image/x-icon">
+
         
+
     </head>
     <body>
-        <div class="container">
-            <div class="text-horizon">업데이트 예정</div>
-        </div>
+      <h1>Realtime Chat</h1>
+  
+      <div id="messages">
+        <!-- 채팅 메시지가 표시될 곳 -->
+      </div>
+      
+      <input type="text" id="messageInput">
+      <button id="sendButton">Send</button>
+      
+        <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
+        <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
+
+        <script type="module">
+          // Firebase SDK 설정
+          import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
+          import { getDatabase, ref, push, onValue } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js';
+      
+          const firebaseConfig = {
+            apiKey: "AIzaSyDaiX0tWqk3WD4IE19rAXvqTChXtfIreas",
+            authDomain: "lib-web-52cf5.firebaseapp.com",
+            databaseURL: "https://lib-web-52cf5-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "lib-web-52cf5",
+            storageBucket: "lib-web-52cf5.appspot.com",
+            messagingSenderId: "831131432446",
+            appId: "1:831131432446:web:1b9f6a7eb48e448712bcaf",
+            measurementId: "G-0VV9XJSWB9"
+          };
+      
+          // Firebase 초기화
+          const app = initializeApp(firebaseConfig);
+          const database = getDatabase(app);
+          const messagesRef = ref(database, 'messages');
+      
+          // 메시지 수신 시 처리
+          onValue(messagesRef, (snapshot) => {
+            const data = snapshot.val();
+            for (let key in data) {
+              const message = data[key];
+              displayMessage(message.name, message.text);
+            }
+          });
+      
+          // 메시지 표시 함수
+          function displayMessage(name, text) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${name}: ${text}`;
+            document.getElementById('messages').appendChild(messageElement);
+          }
+      
+          // 메시지 전송 함수
+          function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const messageText = messageInput.value.trim();
+            if (messageText !== '') {
+              push(messagesRef, {
+                name: 'User',  // 사용자 이름
+                text: messageText  // 메시지 텍스트
+              });
+              messageInput.value = '';
+            }
+          }
+          document.getElementById('sendButton').addEventListener('click', sendMessage);
+        </script>
+
     </body>
 </html>
