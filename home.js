@@ -1,5 +1,4 @@
 
-
 const se = document.createElement('script');
 se.src = 'https://ipinfo.io?callback=callback';
 document.body.appendChild(se);
