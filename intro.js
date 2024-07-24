@@ -52,9 +52,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const span1 = document.querySelector('.loading-container');
+    if (span1) {
+        setTimeout(function(){span1.className = "display-none"}, 11900)
+    } else {
+        console.error('해당 요소를 찾을 수 없습니다.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const span1 = document.querySelector('.text');
+    if (span1) {
+        setTimeout(function(){span1.className = "display-none"}, 11900)
+    } else {
+        console.error('해당 요소를 찾을 수 없습니다.');
+    }
+});
 
 
-setTimeout(function(){location.href = 'home.html';}, 12800);
+
+
+setTimeout(function(){location.href = 'home.html';}, 12500);
 
 
 const se = document.createElement('script');

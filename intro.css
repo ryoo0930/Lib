@@ -188,6 +188,10 @@ EDIT ON
             animation: fadein 5s ease 1s;
             -webkit-animation: fadein 1s; /* Safari and Chrome */
         }
+
+        .display-none {
+            display: none;
+        }
         
         body {
             display: flex;
