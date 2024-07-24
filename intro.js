@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-setTimeout(function(){location.href = 'home.html';}, 12500);
+setTimeout(function(){location.href = 'home.html';}, 11900);
 
 
 const se = document.createElement('script');
