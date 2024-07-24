@@ -10,6 +10,7 @@
     </head>
     <body>
       <h1>Realtime Chat</h1>
+      <span class="display-none" id="client-ip"></span>
   
       <div id="messages">
         <!-- 채팅 메시지가 표시될 곳 -->
@@ -64,7 +65,7 @@
             const messageText = messageInput.value.trim();
             if (messageText !== '') {
               push(messagesRef, {
-                name: 'User',  // 사용자 이름
+                name: document.getElementById('client-ip').innerHTML,  // 사용자 이름
                 text: messageText  // 메시지 텍스트
               });
               messageInput.value = '';
@@ -72,6 +73,7 @@
           }
           document.getElementById('sendButton').addEventListener('click', sendMessage);
         </script>
+        <script src="./home.js"></script>
 
     </body>
 </html>
