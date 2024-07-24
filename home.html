@@ -4,21 +4,35 @@
         <title>도서관</title>
         <meta charset="utf-8">
         <link href="./Icon.png" rel="shortcut icon" type="image/x-icon">
+        <link rel="stylesheet" href="./home.css">
 
         
 
     </head>
     <body>
-      <h1>Realtime Chat</h1>
-      <span class="display-none" id="client-ip"></span>
+      <h1>도서관</h1>
   
-      <div id="messages">
+      <div class="center" id="messages">
         <!-- 채팅 메시지가 표시될 곳 -->
       </div>
       
+      <div class="center">
+      <span id="client-ip"></span>
       <input type="text" id="messageInput">
       <button id="sendButton">Send</button>
+      </div>
       
+
+
+
+
+
+
+
+
+
+
+
         <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
         <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
 

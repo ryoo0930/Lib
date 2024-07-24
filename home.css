@@ -1,3 +1,44 @@
-.display-none {
-    display: none;
+body {
+    background-color: #333333;
+    animation: fadein 5s ease 2s;
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+}
+
+h1 {
+    text-align: center;
+    font-family: 'MangoByeolbyeol';
+    font-size: 5vh;
+    color: white;
+    
+}
+
+.center {
+    font-family: 'MangoByeolbyeol';
+    color: white;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'MangoByeolbyeol';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoByeolbyeol.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
