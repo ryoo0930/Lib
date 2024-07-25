@@ -2,6 +2,9 @@ body {
     background-color: #333333;
     animation: fadein 5s ease 2s;
     -webkit-animation: fadein 2s; /* Safari and Chrome */
+
+    overflow: hidden;
+    height: 100%;
 }
 
 h1 {
@@ -15,7 +18,50 @@ h1 {
 .center {
     font-family: 'MangoByeolbyeol';
     color: white;
+}
+
+.under_setting {
+    position: absolute;
+    bottom: 10vh;
+    width: 100vw;
     text-align: center;
+    
+}
+.center_menu {
+    width: 80vw;
+    text-align: center;
+    margin-left: 1vw;
+}
+
+.text_under {
+    position: absolute;
+    bottom: 15vh;
+    width: 100vw;
+}
+
+.left_menu {
+    font-family: 'MangoByeolbyeol';
+    color: aquamarine;
+    width: 8vw;
+    text-align: center;
+
+}
+
+.right_menu {
+    font-family: 'MangoByeolbyeol';
+    color: aquamarine;
+    width: 5vw;
+    text-align: center;
+
+}
+
+.child {
+    height: 100vh;
+    display: inline-block;
+}
+
+#messageInput {
+    width: 50vh;
 }
 
 @font-face {
