@@ -7,7 +7,6 @@ body {
     background-color: #333333;
     overflow-x: hidden;
     overflow-y: hidden;
-    touch-action: none;
     animation: fadein 5s ease 2s;
     -webkit-animation: fadein 2s; /* Safari and Chrome */
 }
