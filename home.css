@@ -1,16 +1,3 @@
-@media (orientation: portrait) {
-	html {
-		transform: rotate(-90deg);
-		transform-origin: top left;
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100vh;
-		height: 100vw;
-	}
-}
-
-
 body {
     margin: 0;
     height: 100vh;
@@ -174,5 +161,67 @@ body {
     }
     to {
         opacity: 1;
+    }
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: auto;
+        gap: 10px;
+    }
+
+    .box {
+        width: 90%;
+        margin: 5px 0;
+    }
+
+    .inner-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3열로 설정 */
+        grid-template-rows: auto;
+        align-items: start;
+    }
+
+    .inner1, .inner2, .inner3 {
+        position: relative;
+        width: 100%;
+        left: 0;
+        bottom: auto;
+    }
+
+    .inner1 {
+        order: 1;
+    }
+
+    .inner2 {
+        order: 2;
+    }
+
+    .inner3 {
+        order: 3;
+    }
+
+    .input-text {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #messageInput {
+        margin: 0 0 10px 0;
+        width: 100%;
+    }
+
+    #sendButton {
+        width: 100%;
+    }
+
+    .right-bottom-sort {
+        position: static;
+        margin-top: 10px;
     }
 }
