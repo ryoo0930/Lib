@@ -200,6 +200,7 @@ EDIT ON
             height: 100vh;
             overflow-x: hidden;
             overflow-y: hidden;
+            touch-action: none;
         }
 
         .fadeout {
