@@ -15,6 +15,18 @@ se.onload = () => {
     document.body.removeChild(se);
 };
 
+document.getElementById('sendButton').addEventListener('click', function() {
+    const input = document.getElementById('messageInput');
+        const newText = input.value;
+
+        if (newText) {
+            const newDiv = document.createElement('div');
+            newDiv.className = 'inputCHAT';
+            newDiv.textContent = newText;
+            document.querySelector('.input-chat-area').appendChild(newDiv);
+        }
+});
+
 document.getElementById('messageInput').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         const input = document.getElementById('messageInput');
@@ -25,7 +37,7 @@ document.getElementById('messageInput').addEventListener('keydown', function(eve
             newDiv.className = 'inputCHAT';
             newDiv.textContent = newText;
             document.querySelector('.input-chat-area').appendChild(newDiv);
-    }
+        }
     }
 });
 
