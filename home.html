@@ -1,56 +1,56 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>도서관</title>
-        <meta charset="utf-8">
-        <link href="./Icon.png" rel="shortcut icon" type="image/x-icon">
-        <link rel="stylesheet" href="./home.css">
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-
-    </head>
-    <body>
-      <h1>도서관</h1>
-  
-      <div>
-        <div class="child left_menu">
-          접속중인 IP<br>Left div area<br>Left div area<br>Left div area<br>Left div area<br>Left div area<br>Left div area<br>Left div area
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link href="./Icon.png" rel="shortcut icon" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>도서관</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">Left_Area</div>
+        <div class="box test_title">도서관</div>
+        <div class="box box3">위치 : 도서관 @ <span class="client-ip"></span></div>
+        <div class="box box5">
+            <div class="inner-container">
+                <div class="inner-box inner1">
+                    <!--Time div-->
+                </div>
+                <div class="inner-box inner2">
+                    <!--Name div-->
+                </div>
+                <div class="inner-box inner3">
+                    <!--Text div-->
+                </div>
+            </div>
         </div>
-        <div class="child center_menu">
-          <div class="center" id="messages">
-          <!-- 채팅 메시지가 표시될 곳 -->
-          </div>
+        <div class="box input_box">
+            <div class="right-bottom-sort">
+                <div>> Connect <span class="client-ip"></span></div>
+                <div>> Connection Established ::</div>
+                <div>> Connected To 도서관 @ <span class="client-ip"></span> </div>
+                <div class="input-chat-area">
+                    <!--NEW DIV AREA [CLIENT]-->
+                </div>
+            </div>
         </div>
-        <div class="child right_menu">
-          right div area
+        <div class="box input-text">
+            <span class="client-ip"></span>@ >
+            <input type="text" id="messageInput" onkeyup="if(event.keyCode==13){ sendMessage(); }"/>
         </div>
-      </div>
+    </div>
 
-      <div class="center under_setting">
-        <span id="client-ip"></span>
-        <input type="text" id="messageInput">
-        <button id="sendButton">Send</button>
-      </div>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
 
+    <script type="module">
+        // Firebase SDK 설정
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
+        import { getDatabase, ref, push, onValue } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js';
 
-
-
-
-
-
-
-
-
-
-        <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
-        <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
-
-        <script type="module">
-          // Firebase SDK 설정
-          import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
-          import { getDatabase, ref, push, onValue } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js';
-      
-          const firebaseConfig = {
+        const firebaseConfig = {
             apiKey: "AIzaSyDaiX0tWqk3WD4IE19rAXvqTChXtfIreas",
             authDomain: "lib-web-52cf5.firebaseapp.com",
             databaseURL: "https://lib-web-52cf5-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -59,49 +59,73 @@
             messagingSenderId: "831131432446",
             appId: "1:831131432446:web:1b9f6a7eb48e448712bcaf",
             measurementId: "G-0VV9XJSWB9"
-          };
-      
-          // Firebase 초기화
-          const app = initializeApp(firebaseConfig);
-          const database = getDatabase(app);
-          const messagesRef = ref(database, 'messages');
-      
-          // 메시지 수신 시 처리
-          onValue(messagesRef, (snapshot) => {
-            $("#messages").empty();
-            const data = snapshot.val();
-            for (let key in data) {
-              const message = data[key];
-              displayMessage(message.name, message.text);
-            }
-          });
-      
-          // 메시지 표시 함수
-          function displayMessage(name, text) {
-            const messageElement = document.createElement('div');
-            messageElement.textContent = `${name}: ${text}`;
-            document.getElementById('messages').appendChild(messageElement);
+        };
 
-          }
-      
-          // 메시지 전송 함수
-          function sendMessage() {
+        // Firebase 초기화
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const messagesRef = ref(database, 'messages');
+
+        // 메시지 수신 시 처리
+        onValue(messagesRef, (snapshot) => {
+            const data = snapshot.val();
+            const timeContainer = document.querySelector('.inner1');
+            const nameContainer = document.querySelector('.inner2');
+            const textContainer = document.querySelector('.inner3');
+            
+            // 기존 내용을 초기화합니다.
+            timeContainer.innerHTML = '';
+            nameContainer.innerHTML = '';
+            textContainer.innerHTML = '';
+
+            for (let key in data) {
+                const message = data[key];
+                displayMessage(message.time, message.name, message.text);
+            }
+        });
+
+        // 메시지 표시 함수
+        function displayMessage(time, name, text) {
+            const timeElement = document.createElement('div');
+            const nameElement = document.createElement('div');
+            const textElement = document.createElement('div');
+
+            timeElement.textContent = time;
+            nameElement.textContent = name;
+            textElement.textContent = text;
+
+            document.querySelector('.inner1').appendChild(timeElement);
+            document.querySelector('.inner2').appendChild(nameElement);
+            document.querySelector('.inner3').appendChild(textElement);
+        }
+
+        // 메시지 전송 함수
+        window.sendMessage = function() {
             const messageInput = document.getElementById('messageInput');
             const messageText = messageInput.value.trim();
             if (messageText !== '') {
-              push(messagesRef, {
-                name: document.getElementById('client-ip').innerHTML,  // 사용자 이름
-                text: messageText  // 메시지 텍스트
-              });
-              messageInput.value = '';
+                const currentDate = new Date();
+                const formattedDate = `[${currentDate.getHours()}:${currentDate.getMinutes()}]`;
+                const clientIpElements = document.getElementsByClassName('client-ip');
+                let clientIp = '';
+                if (clientIpElements.length > 0) {
+                    clientIp = clientIpElements[0].textContent;
+                }
+                push(messagesRef, {
+                    time: formattedDate,
+                    name: clientIp,
+                    text: messageText
+                });
+                messageInput.value = '';
             }
-            
-          }
+        }
 
-
-          
-          document.getElementById('sendButton').addEventListener('click', sendMessage);
-        </script>
-        <script src="./home.js"></script>
-    </body>
+        document.getElementById('messageInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+    <script src="./home.js"></script>
+</body>
 </html>

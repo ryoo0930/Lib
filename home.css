@@ -1,67 +1,122 @@
 body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #333333;
     animation: fadein 5s ease 2s;
     -webkit-animation: fadein 2s; /* Safari and Chrome */
-
-    overflow: hidden;
-    height: 100%;
 }
 
-h1 {
-    text-align: center;
+.container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1.25fr;
+    grid-template-rows: 0.5fr 0.75fr 10fr 0.3fr;
+    grid-template-areas: 
+        "box1 box2 box3"
+        "box1 box2 box6"
+        "box1 box5 box6"
+        "box1 box5 box7";
+    width: 100vw;
+    height: 100vh;
+    gap: 3px;
+    background-color: #646464;
+}
+
+.inner-container {
+    display: grid;
+    grid-template-columns: 0.5fr 0.75fr 7fr;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2vh;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+.test_title {
+    grid-area: box2;
+    background-color: #333333;
     font-family: 'MangoByeolbyeol';
     font-size: 5vh;
-    color: white;
-    
+    justify-content: center;
 }
 
-.center {
-    font-family: 'MangoByeolbyeol';
-    color: white;
+.box3 {
+    grid-area: box3;
+    background-color: #333333;
+    justify-content: right;
+    padding: 1vh;
 }
 
-.under_setting {
+.box1 {
+    grid-area: box1;
+    background-color: #333333;
+    justify-content: center;
+}
+
+.box5 {
+    grid-area: box5;
+    background-color: #333333;
+    justify-content: center;
+}
+
+.input_box {
+    grid-area: box6;
+    background-color: #333333;
+    font-size: 1.25vh;
+    position: relative;
+    height: auto;
+}
+
+.right-bottom-sort {
     position: absolute;
-    bottom: 10vh;
-    width: 100vw;
-    text-align: center;
-    
-}
-.center_menu {
-    width: 80vw;
-    text-align: center;
-    margin-left: 1vw;
+    left: 10px;
+    bottom: 1vh;
 }
 
-.text_under {
-    position: absolute;
-    bottom: 15vh;
-    width: 100vw;
-}
-
-.left_menu {
-    font-family: 'MangoByeolbyeol';
-    color: aquamarine;
-    width: 8vw;
-    text-align: center;
-
-}
-
-.right_menu {
-    font-family: 'MangoByeolbyeol';
-    color: aquamarine;
-    width: 5vw;
-    text-align: center;
-
-}
-
-.child {
-    height: 100vh;
-    display: inline-block;
+.input-text {
+    grid-area: box7;
+    background-color: #333333;
+    font-size: 1.25vh;
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
 #messageInput {
-    width: 50vh;
+    flex: 1;
+    padding: 5px;
+    font-size: 1.25vh;
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+#sendButton {
+    padding: 5px 10px;
+    font-size: 1.25vh;
+    background-color: transparent;
+    color: white;
+}
+
+.inner1 {
+    text-align: center;
+}
+
+.inner2 {
+    text-align: right;
+}
+
+.inner3 {
+    text-align: left;
 }
 
 @font-face {
