@@ -14,7 +14,7 @@
         <div class="box test_title">도서관</div>
         <div class="box box3">
             위치 : 도서관 @ <span class="client-ip"></span>
-            <img src="btn_Icon.png" id="imgBtn">
+            <img src="btn_Icon.png" id="imgBtn" onclick="moveSerivce()">
         </div>
         <div class="box box5">
             <div class="inner-container">
@@ -41,8 +41,7 @@
         </div>
         <div class="box input-text">
             <span class="client-ip"></span>@ >
-            <input type="text" id="messageInput" onkeyup="if(event.keyCode==13){ sendMessage(); }"/>
-            <button id="sendButton">Send</button>
+            <input type="text" id="messageInput" onkeyup="if(event.keyCode==13){ sendMessage() }"/>
         </div>
     </div>
 

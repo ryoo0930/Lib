@@ -110,13 +110,6 @@ body {
     color: white;
 }
 
-#sendButton {
-    padding: 5px 10px;
-    font-size: 1.25vh;
-    background-color: transparent;
-    color: white;
-}
-
 .inner1 {
     text-align: center;
     bottom: 1vh;
