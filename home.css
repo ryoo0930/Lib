@@ -96,6 +96,10 @@ body {
     align-items: center;
 }
 
+#imgBtn {
+    width: 5%;
+}
+
 #messageInput {
     flex: 1;
     padding: 5px;
